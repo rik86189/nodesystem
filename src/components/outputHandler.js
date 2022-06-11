@@ -91,9 +91,30 @@ function recussion(node, dataStructure, nodeList) {
 
 
     } else if (currentNodeInfo.input2 == "connection@1") {
-      waarde =
+
+      if(currentNodeInfo.type == "multiply" ||currentNodeInfo.type == "output" ){
+
+        waarde =
         recussion(nodeCHildren[0], dataStructure, nodeList) *
-        currentNodeInfo.input1;
+        parseFloat( currentNodeInfo.input1);
+
+
+      }else if (currentNodeInfo.type == "add"){
+        waarde =
+           recussion(nodeCHildren[0], dataStructure, nodeList) +
+           parseFloat( currentNodeInfo.input1);
+
+      }else if (currentNodeInfo.type == "subtract"){
+        waarde =
+           recussion(nodeCHildren[0], dataStructure, nodeList) -
+           parseFloat( currentNodeInfo.input1);
+
+      }else if (currentNodeInfo.type == "divide"){
+        waarde =
+           recussion(nodeCHildren[0], dataStructure, nodeList) /
+           parseFloat( currentNodeInfo.input1);
+
+      }
     }
   } else {
     let nodeInfo = nodeList[node];
