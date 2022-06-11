@@ -23,7 +23,7 @@ function App() {
           add new node
         </button>
 
-        <button className="p-3">bereken uitkomst</button>
+
       </div>
 
       <OutputHandler />
