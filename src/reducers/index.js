@@ -1,6 +1,7 @@
 import clickedOutput from "./clickedOutput"
 import modifyConnectionArray from "./modifyConnectionArray"
 import sendDetails from "./clickedOutputDetails"
+import sourceCords from "./sourceCords";
 
 import {combineReducers } from "redux"
 import nodeList from "./nodelist"
@@ -13,6 +14,7 @@ const allReducers = combineReducers({
     connectieData:sendDetails,
     nodeList: nodeList,
     treeHiearchy:nodeTreeState,
+    sourceCords:sourceCords
 })
 
 export default allReducers

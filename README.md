@@ -1,4 +1,4 @@
-![alt text](download.jpg)
+# basic node/graph based calculator 
 
-# testing 
-hello there 
+![alt text](readmeImages/standard.png)
+

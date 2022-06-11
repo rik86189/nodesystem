@@ -7,11 +7,13 @@ import { disableConnector } from "../actions/disableConnector";
 import { changeCords } from "../actions/changeCords";
 import changeNodeValue from "../actions/nodeTreeActions/changeNodeValue";
 import changeNodeType from "../actions/nodeTreeActions/changeNodeType";
+import { updateSourceCords } from "../actions/sendsourceCords";
 
 function Input(props) {
   // global context
   const isTryingToConnect = useSelector((state) => state.UIstateManager);
   const sourceNode = useSelector((state) => state.connectieData);
+  const sourceNodeCords = useSelector((state) => state.sourceCords);
   const dispatch = useDispatch();
   const [posX, setPosX] = useState();
   const [posY, setPosY] = useState();
@@ -39,12 +41,12 @@ function Input(props) {
         inputNodeIndex: props.id,
         sourceNode: sourceNode,
         sourceNodeCords: {
-          x: 0,
-          y: 0,
+          x: sourceNodeCords.posX,
+          y: sourceNodeCords.posY,
         },
         inputNodeCords: {
-          x: 0,
-          y: 0,
+          x: posX,
+          y: posY,
         },
       };
 
@@ -125,6 +127,7 @@ function Output(props) {
         onClick={() => {
           dispatch(enableConnector());
           dispatch(sendData(props.nodeIndex));
+          dispatch(updateSourceCords({posX:posX,posY:posY}))
         }}
       ></div>
     </div>
