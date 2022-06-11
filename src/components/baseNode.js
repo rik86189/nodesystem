@@ -19,7 +19,6 @@ function Input(props) {
   const test = useStore();
   const connecties = test.getState().connecties;
 
-
   let allCurrentConencties = findAConnection(connecties, props.nodeIndex);
 
   let toggle = 0;
@@ -49,21 +48,9 @@ function Input(props) {
         },
       };
 
-        
-
-
-    
-
-
-
-          dispatch(addElementToConnectionArray(testConnection));
-          dispatch(disableConnector());
-
-        }
-  
-
-
-    
+      dispatch(addElementToConnectionArray(testConnection));
+      dispatch(disableConnector());
+    }
   }
 
   return (
@@ -149,7 +136,6 @@ export default function BaseNode(props) {
   let [posX, setPosX] = useState(70);
   let [posY, setPosY] = useState(50);
   let [clicked, clickedOnComponent] = useState(0);
-
 
   //setType("output")
 
