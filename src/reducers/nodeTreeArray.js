@@ -8,7 +8,7 @@ const nodeTreeArray = (state = [], action) => {
 
 
             //3 in the data array is the nodeLis    
-            if (connectieList != undefined) {
+            if (connectieList !== undefined) {
 
                 for (let i = 0; i < connectieList.length +1; i++) {
 
@@ -34,22 +34,22 @@ function findChildren(node, array) {
     let childrenArray = [];
 
     for (let i = 0; i < array.length; i++) {
-        if (array[i].inputNode == node) {
+        if (array[i].inputNode === node) {
             childrenArray.push(array[i].sourceNode);
         }
     }
-    return childrenArray.length == 0 ? null : childrenArray;
+    return childrenArray.length === 0 ? null : childrenArray;
 }
 
-function findParrent(node, array) {
-    let nodeParrent = 0;
+// function findParrent(node, array) {
+//     let nodeParrent = 0;
 
-    for (let i = 0; i < array.length; i++) {
-        if (array[i].sourceNode == node) {
-            nodeParrent = array[i].inputNode;
-        } else {
-            nodeParrent = null;
-        }
-    }
-    return nodeParrent;
-}
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i].sourceNode == node) {
+//             nodeParrent = array[i].inputNode;
+//         } else {
+//             nodeParrent = null;
+//         }
+//     }
+//     return nodeParrent;
+// }

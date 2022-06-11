@@ -1,8 +1,5 @@
-import React, { useState, useContext } from "react";
-
-import ReactDOM from "react-dom";
+import React, { useState } from "react";
 import { useSelector, useDispatch, useStore } from "react-redux";
-import { computeHeadingLevel } from "@testing-library/dom";
 import { enableConnector } from "../actions/enableConnector";
 import { addElementToConnectionArray } from "../actions/addElementToConnectionArray";
 import { sendData } from "../actions/sendData";
@@ -21,14 +18,14 @@ function Input(props) {
 
   const test = useStore();
   const connecties = test.getState().connecties;
-  const nodeHierachy = test.getState().treeHiearchy;
+
 
   let allCurrentConencties = findAConnection(connecties, props.nodeIndex);
 
   let toggle = 0;
 
   for (let i = 0; i < allCurrentConencties.length; i++) {
-    if (allCurrentConencties[i].inputNodeIndex == props.id) {
+    if (allCurrentConencties[i].inputNodeIndex === props.id) {
       toggle = 1;
       dispatch(
         changeNodeValue([props.nodeIndex, "connection@" + props.id, props.id])
@@ -37,7 +34,7 @@ function Input(props) {
   }
 
   function acceptConnection() {
-    if (isTryingToConnect == 1) {
+    if (isTryingToConnect === 1) {
       const testConnection = {
         inputNode: props.nodeIndex,
         inputNodeIndex: props.id,
@@ -73,11 +70,11 @@ function Input(props) {
     <div className="inline-block relative bg-gray-600 col-start-1 p-1">
       <div
         ref={(el) => {
-          if (el != null) {
+          if (el !== null) {
             const x = el.getBoundingClientRect().x;
             const y = el.getBoundingClientRect().y;
 
-            if (posX != x && posY != y) {
+            if (posX !== x && posY !== y) {
               dispatch(
                 changeCords({ X: x, Y: y }, props.nodeIndex, false, props.id)
               );
@@ -92,7 +89,7 @@ function Input(props) {
       ></div>
 
       <div className="text-center">
-        {toggle == 0 && props.nodeType != "output" ? (
+        {toggle === 0 && props.nodeType !== "output" ? (
           <div>
             <input
               className="w-1/2 rounded"
@@ -130,7 +127,7 @@ function Output(props) {
             const x = el.getBoundingClientRect().x;
             const y = el.getBoundingClientRect().y;
 
-            if (posX != x || posY != y) {
+            if (posX !== x || posY !== y) {
               dispatch(changeCords({ X: x, Y: y }, props.nodeIndex, true));
             }
 
@@ -152,7 +149,7 @@ export default function BaseNode(props) {
   let [posX, setPosX] = useState(70);
   let [posY, setPosY] = useState(50);
   let [clicked, clickedOnComponent] = useState(0);
-  let [type, setType] = useState("");
+
 
   //setType("output")
 
@@ -201,7 +198,7 @@ export default function BaseNode(props) {
     >
       <div className="bg-red-600 rounded-t-md p-2">node {props.nodeIndex}</div>
       <div className="grid grid-cols-2">
-        {props.nodeType == "output" ? (
+        {props.nodeType === "output" ? (
           ""
         ) : (
           <div className="col-span-2 grid justify-center  ">
@@ -242,7 +239,7 @@ function findAConnection(array, nodeIndex) {
   let connectiestoReturn = [];
 
   for (let i = 0; i < array.length; i++) {
-    if (array[i].inputNode == nodeIndex) {
+    if (array[i].inputNode === nodeIndex) {
       connectiestoReturn.push(array[i]);
     }
   }

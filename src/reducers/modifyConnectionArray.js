@@ -1,4 +1,4 @@
-import { act } from "react-dom/test-utils";
+
 
 
 const modifyConnectionArray = (state = [], action) => {
@@ -16,15 +16,15 @@ const modifyConnectionArray = (state = [], action) => {
 
       for (let i = 0; i < test.length; i++) {
         if (
-          test[i].sourceNode == action.nodeIndex &&
-          action.inputOutput == true
+          test[i].sourceNode === action.nodeIndex &&
+          action.inputOutput === true
         ) {
           test[i].inputNodeCords.x = action.data.X;
           test[i].inputNodeCords.y = action.data.Y;
         } else if (
-          test[i].inputNode == action.nodeIndex &&
-          action.inputOutput == false &&
-          test[i].inputNodeIndex == action.inputID
+          test[i].inputNode === action.nodeIndex &&
+          action.inputOutput === false &&
+          test[i].inputNodeIndex === action.inputID
         ) {
           
      

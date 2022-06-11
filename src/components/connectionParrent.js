@@ -1,7 +1,3 @@
-import { computeHeadingLevel } from "@testing-library/dom";
-import React, { useState, useContext } from "react";
-import NodeParrent from "./nodeParrent";
-import { connect, useStore, } from "react-redux";
 import { useDispatch } from "react-redux";
 import buildHiearchy from "../actions/nodeTreeActions/buildHierachy"
 

@@ -1,7 +1,6 @@
 import BaseNode from "./baseNode";
-import { useContext, useState } from "react";
 import addNode from "../actions/nodeTreeActions/addNode"
-import { useSelector, useDispatch, useStore } from "react-redux";
+import {  useDispatch, useStore } from "react-redux";
 
 export function NodeParrent(props) {
   let nodes = [];
@@ -26,7 +25,7 @@ export function NodeParrent(props) {
   //props.NodeAmmount
 
   for (let i = 0; i < props.NodeAmmount; i++) {
-    if (i == 0) {
+    if (i === 0) {
       nodes.push(<BaseNode nodeIndex={0} key={0} inputAmmount={1} outputAmmount={0} nodeType="output" />);
       if (!idArray.includes(i)) {
 

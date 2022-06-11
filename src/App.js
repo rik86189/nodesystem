@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ConnectionParrent } from "./components/connectionParrent";
 
 import { NodeParrent } from "./components/nodeParrent";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 import { OutputHandler } from "./components/outputHandler";
@@ -12,7 +12,7 @@ import { OutputHandler } from "./components/outputHandler";
 function App() {
   const [nodeAmount, setNodeAmmount] = useState(1);
   const connectionData = useSelector((state) => state.connecties)
-  const dispatch = useDispatch();
+  
   
 
 

@@ -31,11 +31,11 @@ const nodeList = (state = [], action) => {
 
             for (let i = 0; i < stateCopy.length; i++) {
 
-                if (stateCopy[i].nodeId == action.data[0]) {
+                if (stateCopy[i].nodeId === action.data[0]) {
 
                     //this.nodeList[i].value[data[2]] = data[1]
                     //this.nodeList[i].value[data[2]] =  parseFloat(data[1]) 
-                    if (action.data[2] == 0) {
+                    if (action.data[2] === 0) {
                         stateCopy[i].input1 =    action.data[1]
 
                     } else {
@@ -55,7 +55,7 @@ const nodeList = (state = [], action) => {
 
             for (let i = 0; i < statecopy2.length; i++) {
 
-                if (statecopy2[i].nodeId == action.data[0]) {
+                if (statecopy2[i].nodeId === action.data[0]) {
 
 
                     statecopy2[i].type = action.data[1]
