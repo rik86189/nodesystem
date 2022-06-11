@@ -13,8 +13,8 @@ function calculateResult(nodeHierachy, nodeList) {
   let result = 1;
   if (
     nodeHierachy.length > 1 &&
-    nodeHierachy != undefined &&
-    nodeList != undefined
+    nodeHierachy !== undefined &&
+    nodeList !== undefined
   ) {
    result =  recussion(0, nodeHierachy, nodeList);
   }
@@ -36,24 +36,24 @@ function recussion(node, dataStructure, nodeList) {
        parseFloat( recussion(nodeCHildren[0], dataStructure, nodeList)) *
        parseFloat( recussion(nodeCHildren[1], dataStructure, nodeList));
 
-       if(currentNodeInfo.type == "multiply" ||currentNodeInfo.type == "output" ){
+       if(currentNodeInfo.type === "multiply" ||currentNodeInfo.type === "output" ){
 
         waarde =
         parseFloat( recussion(nodeCHildren[0], dataStructure, nodeList)) *
         parseFloat( recussion(nodeCHildren[1], dataStructure, nodeList));
 
 
-      }else if (currentNodeInfo.type == "add"){
+      }else if (currentNodeInfo.type === "add"){
         waarde =
         parseFloat( recussion(nodeCHildren[0], dataStructure, nodeList)) +
         parseFloat( recussion(nodeCHildren[1], dataStructure, nodeList));
 
-      }else if (currentNodeInfo.type == "subtract"){
+      }else if (currentNodeInfo.type === "subtract"){
         waarde =
         parseFloat( recussion(nodeCHildren[0], dataStructure, nodeList)) -
         parseFloat( recussion(nodeCHildren[1], dataStructure, nodeList));
 
-      }else if (currentNodeInfo.type == "divide"){
+      }else if (currentNodeInfo.type === "divide"){
         waarde =
         parseFloat( recussion(nodeCHildren[0], dataStructure, nodeList)) /
         parseFloat( recussion(nodeCHildren[1], dataStructure, nodeList));
@@ -61,27 +61,27 @@ function recussion(node, dataStructure, nodeList) {
       }
 
 
-    } else if (currentNodeInfo.input1 == "connection@0") {
+    } else if (currentNodeInfo.input1 === "connection@0") {
 
      
-      if(currentNodeInfo.type == "multiply" ||currentNodeInfo.type == "output" ){
+      if(currentNodeInfo.type === "multiply" ||currentNodeInfo.type === "output" ){
 
         waarde =
         recussion(nodeCHildren[0], dataStructure, nodeList) *
         parseFloat( currentNodeInfo.input2);
 
 
-      }else if (currentNodeInfo.type == "add"){
+      }else if (currentNodeInfo.type === "add"){
         waarde =
            recussion(nodeCHildren[0], dataStructure, nodeList) +
            parseFloat( currentNodeInfo.input2);
 
-      }else if (currentNodeInfo.type == "subtract"){
+      }else if (currentNodeInfo.type === "subtract"){
         waarde =
            recussion(nodeCHildren[0], dataStructure, nodeList) -
            parseFloat( currentNodeInfo.input2);
 
-      }else if (currentNodeInfo.type == "divide"){
+      }else if (currentNodeInfo.type === "divide"){
         waarde =
            recussion(nodeCHildren[0], dataStructure, nodeList) /
            parseFloat( currentNodeInfo.input2);
@@ -90,26 +90,26 @@ function recussion(node, dataStructure, nodeList) {
 
 
 
-    } else if (currentNodeInfo.input2 == "connection@1") {
+    } else if (currentNodeInfo.input2 === "connection@1") {
 
-      if(currentNodeInfo.type == "multiply" ||currentNodeInfo.type == "output" ){
+      if(currentNodeInfo.type === "multiply" ||currentNodeInfo.type === "output" ){
 
         waarde =
         recussion(nodeCHildren[0], dataStructure, nodeList) *
         parseFloat( currentNodeInfo.input1);
 
 
-      }else if (currentNodeInfo.type == "add"){
+      }else if (currentNodeInfo.type === "add"){
         waarde =
            recussion(nodeCHildren[0], dataStructure, nodeList) +
            parseFloat( currentNodeInfo.input1);
 
-      }else if (currentNodeInfo.type == "subtract"){
+      }else if (currentNodeInfo.type === "subtract"){
         waarde =
            recussion(nodeCHildren[0], dataStructure, nodeList) -
            parseFloat( currentNodeInfo.input1);
 
-      }else if (currentNodeInfo.type == "divide"){
+      }else if (currentNodeInfo.type === "divide"){
         waarde =
            recussion(nodeCHildren[0], dataStructure, nodeList) /
            parseFloat( currentNodeInfo.input1);
@@ -120,15 +120,15 @@ function recussion(node, dataStructure, nodeList) {
     let nodeInfo = nodeList[node];
   
 
-    if (nodeInfo.type == "multiply") {
+    if (nodeInfo.type === "multiply") {
       waarde = parseFloat(nodeInfo.input1) * parseFloat(nodeInfo.input2);
-    } else if (nodeInfo.type == "add") {
+    } else if (nodeInfo.type === "add") {
       waarde = parseFloat(nodeInfo.input1) + parseFloat(nodeInfo.input2);
-    }else if ( nodeInfo.type == "subtract"){
+    }else if ( nodeInfo.type === "subtract"){
 
       waarde = parseFloat(nodeInfo.input1) - parseFloat(nodeInfo.input2);
 
-    }else if ( nodeInfo.type == "divide"){
+    }else if ( nodeInfo.type === "divide"){
 
       waarde = parseFloat(nodeInfo.input1) / parseFloat(nodeInfo.input2);
 
