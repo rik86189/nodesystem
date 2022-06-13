@@ -16,9 +16,9 @@ export function ConnectionParrent(props) {
     connectionArray.push(
       <line
         x1={cords.inputNodeCords.x}
-        y1={cords.inputNodeCords.y - 90}
+        y1={cords.inputNodeCords.y -65}
         x2={cords.sourceNodeCords.x + 10}
-        y2={cords.sourceNodeCords.y - 90}
+        y2={cords.sourceNodeCords.y - 65}
         key={i}
         strokeWidth={4}
         className="border-2 border-white"

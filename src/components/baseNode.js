@@ -18,8 +18,8 @@ function Input(props) {
   const [posX, setPosX] = useState();
   const [posY, setPosY] = useState();
 
-  const test = useStore();
-  const connecties = test.getState().connecties;
+  const store = useStore();
+  const connecties = store.getState().connecties;
 
   let allCurrentConencties = findAConnection(connecties, props.nodeIndex);
 
